@@ -4,7 +4,7 @@ const { join } = require('path');
 
 const asarPath = join(require.main.filename, '..');
 
-const asarUrl = `https://github.com/GooseMod/OpenAsar/releases/download/${oaVersion.split('-')[0]}/app.asar`;
+const asarUrl = `https://github.com/ToxicAven/OpenAsar/releases/download/${oaVersion.split('-')[0]}/app.asar`;
 
 // todo: have these https utils centralised?
 const redirs = url => new Promise(res => get(url, r => { // Minimal wrapper around https.get to follow redirects
