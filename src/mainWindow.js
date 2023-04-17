@@ -14,13 +14,14 @@ const themesync = async () => {
   if (!bgPrimary || bgPrimary === '#36393f' || bgPrimary === '#fff' || bgPrimary === lastBgPrimary) return; // Default primary bg or same as last
   lastBgPrimary = bgPrimary;
 
-  const vars = [ '--background-primary', '--background-secondary', '--brand-experiment', '--header-primary', '--text-muted', '--accent' ];
+  const vars = [ '--background-primary', '--background-secondary', '--brand-experiment', '--header-primary', '--text-muted' ];
 
   let cached = await DiscordNative.userDataCache.getCached() || {};
 
   const value = `body { ${vars.reduce((acc, x) => acc += `${x}: ${getVar(x)}; `, '')} }`;
   const pastValue = cached['openasarSplashCSS'];
   cached['openasarSplashCSS'] = value;
+  cached['customSplashCSS'] = cached['customSplashCSS'] || ''; // Make sure it exists
 
   if (value !== pastValue) DiscordNative.userDataCache.cacheUserData(JSON.stringify(cached));
 };
