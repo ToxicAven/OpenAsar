@@ -24,7 +24,7 @@ jobs:
     - name: Pack base asar
       run: |
         npm i -g asar
-        sed -i -e "s/nightly/nightly-$(git rev-parse HEAD | cut -c 1-7)/" src/index.js
+        sed -i -e "s/aven/aven-$(git rev-parse HEAD | cut -c 1-7)/" src/index.js
         node scripts/strip.js
         npx asar pack src app.asar
 
